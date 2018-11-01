@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -35,6 +35,7 @@ namespace PalTracker
                 Configuration.GetValue<string>("CF_INSTANCE_ADDR")
             ));
 
+            services.AddSingleton<ITimeEntryRepository, InMemoryTimeEntryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
